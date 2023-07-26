@@ -1,0 +1,123 @@
+@import './mixins';
+@import './constant';
+
+@include Spacings;
+@include Sizing;
+@include Opacity;
+@include HWs;
+
+
+
+.infoBtn{
+    background-color: #4a656d;
+    border: 2px solid $dull-blue;
+    text-shadow: 0 0 8px $dull-blue;
+    box-shadow: inset 0 0 0.3em 0 $dull-blue, 0 0 0.3em 0 $dull-blue;
+    cursor: pointer;
+    &::after{
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      height: 3px;
+      border: 2px solid $dull-blue;
+      background: #fff;
+      width: 100%;
+      box-shadow: inset 0 0 0.05em 0 $dull-blue, 0 0 0.05em 0 $dull-blue;
+    }
+  }
+
+
+  .grayBtn{
+    color: $lang-color;
+    background-color: $gray;
+    border: 2px solid $yellow;
+    text-shadow: 0 0 8px $light-orange;
+    box-shadow: inset 0 0 0.3em 0 $light-orange, 0 0 0.3em 0 $light-orange;
+    cursor: pointer;
+    &::after{
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        height: 3px;
+        border: 2px solid $yellow;
+        background: #fff;
+        width: 100%;
+        box-shadow: inset 0 0 0.05em 0 $light-orange, 0 0 0.05em 0 $light-orange;
+      }
+  }
+
+  .yellowBtn{
+    color: $lang-color;
+    background-color: $brown;
+    border: 2px solid $orange;
+    text-shadow: 0 0 8px $orange;
+    box-shadow: inset 0 0 0.3em 0 $orange, 0 0 0.3em 0 $orange;
+    cursor: pointer;
+    &::after{
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        height: 3px;
+        border: 2px solid $orange;
+        background: #fff;
+        width: 100%;
+        box-shadow: inset 0 0 0.05em 0 $orange, 0 0 0.05em 0 $orange;
+      }
+  }
+
+  .redBtn{
+    background-color: $dark-red;
+    border: 2px solid $red;
+    text-shadow: 0 0 8px $red;
+    box-shadow: inset 0 0 0.3em 0 $red, 0 0 0.3em 0 $red;
+    cursor: pointer;
+    letter-spacing: 1.3px;
+    &::after{
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        height: 3px;
+        border: 2px solid $red;
+        background: #fff;
+        width: 100%;
+        box-shadow: inset 0 0 0.05em 0 $red, 0 0 0.05em 0 $red;
+      } 
+  }
+
+  .card{
+    background-color: $card-bg;
+    border: 1px solid #25384a;
+    min-height: 550px;
+    max-height: 655px;
+    @include Responsive('mobile'){
+        max-width: 90%;
+        height: fit-content !important;
+        margin-top: 200px;
+    }
+
+  }
+
+  .centerContainer{
+    text-align: center;
+    flex : 1.6 1;
+    border: 2px solid #7c7c7c;
+    background: rgba(55,196,240,.15);
+    height: 100%;
+    width: 100%;
+    padding: 0.8rem 5px;
+    overflow: hidden;
+    color: #fff;
+  }
+
+  .modeBtn{
+    border: 1px solid #fff;
+  }
+
+  .withdrawBtn {
+    color: $lang-color;
+    background-color: $brown;
+    border: 2px solid $orange;
+    text-shadow: 0 0 8px $orange;
+    box-shadow: inset 0 0 0.3em 0 $orange, 0 0 0.3em 0 $orange;
+    cursor: pointer;
+  }

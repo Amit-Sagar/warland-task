@@ -1,0 +1,234 @@
+$breakpoints: (
+  "tab": 1000px,
+  "mobile": 600px,
+  ) !default;
+
+  $margins: 40;
+
+  @mixin Responsive($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+      @media (max-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    }
+  
+    @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+      +"Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+  }
+
+  @mixin Spacings {
+    @for $i from 0 through $margins {
+      .mt-#{$i} {
+        margin-top: #{5 *$i}#{'px'} !important;
+      }
+  
+      .mb-#{$i} {
+        margin-bottom: #{5 *$i}#{'px'} !important;
+      }
+  
+      .ml-#{$i} {
+        margin-left: #{5 *$i}#{'px'} !important;
+      }
+  
+      .mr-#{$i} {
+        margin-right: #{5 *$i}#{'px'} !important;
+      }
+  
+      .mr-#{$i}--noMob {
+        margin-right: #{5 *$i}#{'px'} !important;
+  
+        @include Responsive("mobile") {
+          margin-right: 0px !important;
+        }
+      }
+  
+      .mx-#{$i} {
+        margin-left: #{5 *$i}#{'px'} !important;
+        margin-right: #{5 *$i}#{'px'} !important;
+      }
+      
+      .mx-#{$i}--mob {
+        @include Responsive("mobile") {
+          margin-left: #{5 *$i}#{'px'} !important;
+          margin-right: #{5 *$i}#{'px'} !important;   
+        }
+      }
+      .my-#{$i} {
+        margin-top: #{5 *$i}#{'px'} !important;
+        margin-bottom: #{5 *$i}#{'px'} !important;
+      }
+  
+      .pt-#{$i} {
+        padding-top: #{5 *$i}#{'px'} !important;
+      }
+  
+      .pb-#{$i} {
+        padding-bottom: #{5 *$i}#{'px'} !important;
+      }
+  
+      .pl-#{$i} {
+        padding-left: #{5 *$i}#{'px'} !important;
+      }
+  
+      .pr-#{$i} {
+        padding-right: #{5 *$i}#{'px'} !important;
+      }
+      .bottom-#{$i}{
+        bottom: #{5 *$i}#{'px'} !important;
+      }
+      .top-#{$i} {
+        top: #{5 *$i}#{'px'} !important;
+      }
+      .-top-#{$i} {
+        top: -#{5 *$i}#{'px'} !important;
+      }
+  
+      .left-#{$i} {
+        left: #{5 *$i}#{'px'} !important;
+      }
+  
+      .right-#{$i} {
+        right: #{5 *$i}#{'px'} !important;
+      }
+  
+      .px-#{$i} {
+        padding-left: #{$i}#{'px'} !important;
+        padding-right: #{$i}#{'px'} !important;
+      }
+  
+      .py-#{$i} {
+        padding-top: #{$i}#{'px'} !important;
+        padding-bottom: #{$i}#{'px'} !important;
+      }
+    }
+  }
+
+@mixin Sizing {
+    @for $i from 10 through 50 {
+      @if $i % 2==0 {
+        .fs-#{$i} {
+          font-size: #{$i}#{'px'} !important;
+        }
+  
+        .fs-#{$i}--mob {
+          @include Responsive("mobile") {
+            font-size: #{$i}#{'px'} !important;
+          }
+        }
+  
+        ;
+      }
+    }
+  }
+
+@mixin Opacity {
+    @for $i from 0 through 100 {
+      @if $i%10 ==0 {
+        .opacity-#{$i} {
+          opacity: #{$i/100};
+        }
+  
+        .z-#{$i} {
+          z-index: #{$i};
+        }
+  
+        .mt-#{$i}vh {
+          margin-top: #{$i}#{'vh'} !important;
+        }
+      }
+    }
+  }
+
+  @mixin HWs {
+    @for $i from 0 through 500 {
+      @if $i%5 ==0 {
+        .h-#{$i} {
+          height: #{$i}#{'px'} !important;
+        }
+        .h-#{$i}--noMob {
+          height: #{$i}#{'px'};
+          @include Responsive("mobile") {
+            height: auto;
+          }
+        }
+  
+        .h-#{$i}--mob {
+          @include Responsive("mobile") {
+          height: #{$i}#{'px'} !important;
+          }
+        }
+  
+        .w-#{$i} {
+          width: #{$i}#{'px'} !important;
+        }
+  
+        .minh-#{$i} {
+          min-height: #{$i}#{'px'} !important;
+        }
+  
+        .minw-#{$i} {
+          min-width: #{$i}#{'px'} !important;
+        }
+  
+        .maxh-#{$i} {
+          max-height: #{$i}#{'px'} !important;
+        }
+  
+        .maxw-#{$i} {
+          max-width: #{$i}#{'px'} !important;
+        }
+  
+        .maxw-#{$i}--mob {
+          @include Responsive("mobile") {
+            max-width: #{$i}#{'px'} !important;
+          }
+        }
+      }
+    }
+  
+    @for $i from 0 through 100 {
+      @if $i%5 ==0 {
+        .gap-#{$i} {
+          gap: #{$i}#{'px'} !important;
+        }    }
+      @if $i%2 ==0 {
+        .h-#{$i}p {
+          height: #{$i}#{'%'} !important;
+        }
+  
+        .w-#{$i}p {
+          width: #{$i}#{'%'} !important;
+        }
+  
+        .w-#{$i}p--mob {
+          @include Responsive('mobile') {
+            width: #{$i}#{'%'} !important;
+          }
+        }
+        .h-#{$i}p--mob {
+          @include Responsive('mobile') {
+            width: #{$i}#{'%'} !important;
+          }
+        }
+        .left-#{$i}p {
+          left: #{$i}#{'%'} !important;
+        }
+        .bottom-#{$i}p {
+          bottom: #{$i}#{'%'} !important;
+        }
+        .right-#{$i}p {
+          right: #{$i}#{'%'} !important;
+        }
+        .mt-#{$i}p{
+          margin-top: #{$i}#{'%'} !important;
+        }
+        .rounded-#{$i} {
+          border-radius: #{$i}#{'px'} !important;
+        }
+      }
+    }
+  }
+
+  
