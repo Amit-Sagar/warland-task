@@ -35,7 +35,7 @@ const Invite = () => {
           players: [senderId, receiverId],
           status: "pending",
         });
-        setInvitationLink(`${window.location.hostname}/game/${gameDoc.id}`);
+        setInvitationLink(`/game/${gameDoc.id}`);
         setLoading(false);
       } else {
         setLoading(false);
